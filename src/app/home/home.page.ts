@@ -5,18 +5,16 @@ import { Component } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  visor : string = '0' ;
-  valor1! : number;
-  valor2! : number;
-  operacao! : number;
-  
-  constructor(){}
 
   
-  porcem(){
-    this.valor1 = +this.visor;
-    this.visor = "" + (this.valor1 /100);
+export class HomePage {
+  visor : string = '0' ;
+  operacao! : number;
+  valor1! : number;
+  valor2! : number;
+  
+  constructor(){
+    
   }
 
   inverso(){
@@ -29,6 +27,12 @@ export class HomePage {
     this.visor = "" + (this.valor1 + ".")
   }
 
+  porcem(){
+    this.valor1 = +this.visor;
+    this.visor = "" + (this.valor1 /100);
+  }
+
+  
   addNum(valor : string){
     if((this.visor.length == 1) && (this.visor == '0')){
       this.visor = valor;
@@ -36,13 +40,13 @@ export class HomePage {
       this.visor += valor;
     }
   }
-
   addOp(valor : number){
     this.operacao = valor;
     this.valor1 = +this.visor;
     this.valor2 = Number(this.visor);
     this.limpar();
   }
+
 
   
   calcular(){
